@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bulp_assignment/StarPainter.dart';
 import 'package:bulp_assignment/edit_image_sreen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -68,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Spacer(flex: 6,),
+            Spacer(
+              flex: 6,
+            ),
             InkWell(
               onTap: () async {
                 final XFile? photo =
@@ -165,10 +168,55 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Spacer(flex: 4,),
-            Text("Assignment By: VAIBHAV CHANDOLIA",   style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.w500, color: Colors.cyan),),
-            SizedBox(height: 20,)
+            SizedBox(
+              height: 25,
+            ),
+            InkWell(
+              onTap: () async {
+                Navigator.of(context).push(MaterialPageRoute(builder: (builder){
+                  return StarPainerScreen();
+                }));
+              },
+              child: Container(
+                height: 55,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                decoration: BoxDecoration(
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.star,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Star Painter",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Spacer(
+              flex: 4,
+            ),
+            Text(
+              "Assignment By: VAIBHAV CHANDOLIA",
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.cyan),
+            ),
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
